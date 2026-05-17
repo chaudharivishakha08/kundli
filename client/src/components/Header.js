@@ -9,7 +9,6 @@ const Header = ({ language, onLanguageChange }) => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userRole, setUserRole] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     checkAuthStatus();
@@ -34,7 +33,6 @@ const Header = ({ language, onLanguageChange }) => {
       setIsAuthenticated(false);
       setUserRole(null);
     } finally {
-      setLoading(false);
     }
   };
 
@@ -65,7 +63,7 @@ const Header = ({ language, onLanguageChange }) => {
           </Link>
           {isAuthenticated && (
             <>
-              {userRole != 'Admin' && (
+              {userRole !== 'Admin' && (
               <Link to="/query" className={`nav-btn ${location.pathname === '/query' ? 'active' : ''}`}>
                 {t('query')}
               </Link>

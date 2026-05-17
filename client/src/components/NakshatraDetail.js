@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../App.css';
 
 const NakshatraDetail = ({ language }) => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
-  const { id } = useParams();
   
   // The nakshatra data is passed via route state
   const nakshatra = location.state?.nakshatra;

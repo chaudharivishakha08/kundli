@@ -1,37 +1,6 @@
 import React from 'react'
 import DoshaTable from './DoshaTable';
 
-const renderPlanetList = (planets = []) => {
-  // If there are fewer than 2 planets, render single chips
-  if (!planets || planets.length === 0) return null;
-  if (planets.length === 1) {
-    return (
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-        <span className="chip">{planets[0]}</span>
-      </div>
-    );
-  }
-
-  // Produce adjacent pairs first (i,i+1), then remaining non-adjacent pairs (i,j where j>i+1)
-  const pairs = [];
-  for (let i = 0; i < planets.length - 1; i++) {
-    pairs.push([planets[i], planets[i + 1]]);
-  }
-  for (let i = 0; i < planets.length - 2; i++) {
-    for (let j = i + 2; j < planets.length; j++) {
-      pairs.push([planets[i], planets[j]]);
-    }
-  }
-
-  return (
-    <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-      {pairs.map((pair, idx) => (
-        <span key={idx} className="pair-chip">{`${pair[0]} ${pair[1]}`}</span>
-      ))}
-    </div>
-  );
-}
-
 const PlanetPositions = ({ data = [], t }) => {
   // `data` may be an object containing grouping keys, or an array.
   const root = data && !Array.isArray(data) ? data : (Array.isArray(data) && data.length > 0 && typeof data[0] === 'object' ? data[0] : {});

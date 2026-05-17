@@ -116,7 +116,7 @@ const Query = () => {
 
   const handlePhoneChange = (e) => {
     const value = e.target.value;
-    const cleaned = value.replace(/[^\d\s\-\(\)]/g, '');
+    const cleaned = value.replace(/[^\d\s-()]/g, '');
     setPhoneNumber(cleaned);
   };
  const handleNameChange = (e) => {

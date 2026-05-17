@@ -470,6 +470,7 @@ const GenerateKundli = () => {
   /**
    * Download Kundli as PDF with all data
    */
+  // eslint-disable-next-line no-unused-vars
   const handleDownloadPDF = async () => {
     try {
       const element = document.getElementById('kundli-download-content')

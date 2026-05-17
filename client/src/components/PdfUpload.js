@@ -18,6 +18,7 @@ const PdfUpload = ({ language }) => {
   }, [language, i18n]);
 
   // Auto-process when language changes
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (file) {
       processFile();

@@ -91,24 +91,4 @@ const DoshaTable = ({ data = [], title = 'Dosha Table' }) => {
     );
 };
 
-/**
- * Groups an array of conjunction objects by their 'house' property.
- * @param {Array<Object>} data 
- * @returns {Object<string, Array<Object>>}
- */
-const groupDataByHouse = (data) => {
-    return data.reduce((acc, item) => {
-        let houses = item.house;
-        if (houses == null) return acc;
-        // support house as array
-        if (!Array.isArray(houses)) houses = [houses];
-        houses.forEach((h) => {
-            const key = String(h);
-            if (!acc[key]) acc[key] = [];
-            acc[key].push(item);
-        });
-        return acc;
-    }, {});
-};
-
 export default DoshaTable;
